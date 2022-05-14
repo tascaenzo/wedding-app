@@ -7,12 +7,15 @@ import {
   Text,
   TextBold,
   TextContainer,
-} from './home-nav.style';
+} from './home-nav.styled';
 import { BsFillChatDotsFill } from 'react-icons/bs';
 import { MdNotificationsActive } from 'react-icons/md';
-import { PRIMARY, WHITE } from '@wedding/app/constants';
+import { CHAT, PRIMARY, WHITE } from '@wedding/app/constants';
+import { useRouter } from 'next/router';
 
 export const HomeNav = () => {
+  const router = useRouter();
+
   return (
     <>
       <TopBar />
@@ -27,12 +30,12 @@ export const HomeNav = () => {
           </TextContainer>
         </BtnContainer>
         <BtnContainer>
-          <Circle>
+          <Circle onClick={() => router.push(CHAT)}>
             <BsFillChatDotsFill size={28} color={WHITE} />
           </Circle>
-          <TextContainer>
+          <TextContainer onClick={() => router.push(CHAT)}>
             <TextBold>18</TextBold>
-            <Text>Notifiche</Text>
+            <Text>Chat</Text>
           </TextContainer>
         </BtnContainer>
       </Content>

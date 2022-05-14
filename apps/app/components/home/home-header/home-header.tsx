@@ -4,7 +4,7 @@ import {
   Text,
   TextBold,
   TextContainer,
-} from './home-header.style';
+} from './home-header.styled';
 
 export const HomeHeader = () => {
   return (

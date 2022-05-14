@@ -1,5 +1,5 @@
 import { HomeCardProps } from './home-card.interface';
-import { Btn, Container, Text } from './home-card.style';
+import { Btn, Container, Text } from './home-card.styled';
 
 export const HomeCard = ({ icon, text, color, onClick }: HomeCardProps) => {
   return (
