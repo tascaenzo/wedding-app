@@ -1,5 +1,6 @@
-import { PRIMARY } from '@wedding/app/constants';
-import { Container, BorderBar } from './chat-send-bar.styled';
+import { PRIMARY, PRIMARY_LIGHT } from '@wedding/app/constants';
+import { Container, BorderBar, InputContainer, Btn, Input } from './chat-send-bar.styled';
+import { RiSendPlane2Fill } from 'react-icons/ri';
 
 export const ChatSendBar = () => {
   return (
@@ -8,7 +9,12 @@ export const ChatSendBar = () => {
         <BorderBar />
       </div>
       <Container>
-        <input />
+        <InputContainer>
+          <Input />
+          <Btn>
+            <RiSendPlane2Fill size={22} color={PRIMARY_LIGHT} />
+          </Btn>
+        </InputContainer>
       </Container>
     </>
   );
