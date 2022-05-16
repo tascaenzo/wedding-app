@@ -1,4 +1,4 @@
-import { GRAY } from '@wedding/app/constants';
+import { ERROR, GRAY } from '@wedding/app/constants';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -20,4 +20,9 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const TextFieldError = styled.div`
+  color: ${ERROR};
+  margin: 8px;
 `;

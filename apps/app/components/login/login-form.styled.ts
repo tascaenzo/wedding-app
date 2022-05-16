@@ -2,7 +2,7 @@ import { WHITE } from '@wedding/app/constants/color';
 import { PRIMARY_LIGHT } from '@wedding/app/constants';
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Form = styled.div`
   padding: 26px;
 `;
 

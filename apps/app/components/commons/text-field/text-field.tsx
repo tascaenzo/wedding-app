@@ -9,7 +9,11 @@ export const TextField = ({
 }: TextFieldInterface) => {
   return (
     <Container>
-      <Input value={value} placeholder={placeholder} />
+      <Input
+        onChange={(value) => onChange(value.target.value)}
+        value={value}
+        placeholder={placeholder}
+      />
       {icon}
     </Container>
   );

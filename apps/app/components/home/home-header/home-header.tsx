@@ -1,3 +1,4 @@
+import { useCookies } from 'react-cookie';
 import {
   Avatar,
   Container,
@@ -7,11 +8,13 @@ import {
 } from './home-header.styled';
 
 export const HomeHeader = () => {
+  const [cookies] = useCookies(['auth']);
+
   return (
     <Container>
       <Avatar />
       <TextContainer>
-        <TextBold>Ciao Noemi</TextBold>
+        <TextBold>Ciao {cookies.auth.firstName}</TextBold>
         <Text>Benvenuta</Text>
       </TextContainer>
     </Container>
