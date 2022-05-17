@@ -7,6 +7,7 @@ async function seed() {
     data: {
       firstName: "Enzo",
       lastName: "Tasca",
+      avatar: 'avatar1'
     },
   });
 

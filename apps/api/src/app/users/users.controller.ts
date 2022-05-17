@@ -8,6 +8,7 @@ export class UsersController {
 
   @Post()
   async Login(@Body() user: Prisma.UserCreateInput) {
+    console.log(user)
     return this.usersService.createUser(user);
   }
 }

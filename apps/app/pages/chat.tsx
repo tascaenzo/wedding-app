@@ -34,15 +34,17 @@ function Chat() {
       <ChatWrapper>
         <AppBar />
         <ChatContainer>
-          {messages.map((msg, index) => (
-            <ChatMessage
-              key={index}
-              message={msg.message}
-              time={msg.createdAt as unknown as string}
-              author={`${msg.User.firstName} ${msg.User.lastName}`}
-              rightAlign={msg.userId === cookies.auth.id}
-            />
-          ))}
+          {messages.map((msg, index) => {
+            return (
+              <ChatMessage
+                key={index}
+                message={msg.message}
+                time={msg.time}
+                author={`${msg.User.firstName} ${msg.User.lastName}`}
+                rightAlign={msg.userId === cookies.auth.id}
+              />
+            );
+          })}
         </ChatContainer>
         <ChatSendBar onSend={sendMessage} />
       </ChatWrapper>

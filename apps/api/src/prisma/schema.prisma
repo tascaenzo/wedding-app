@@ -11,6 +11,7 @@ model User {
   id          String        @id @default(cuid())
   firstName   String
   lastName    String
+  avatar      String
   createdAt   DateTime      @default(now())
   ChatMessage ChatMessage[]
 }
@@ -19,6 +20,7 @@ model ChatMessage {
   id        String   @id @default(cuid())
   userId    String
   message   String
+  time      String?
   User      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }

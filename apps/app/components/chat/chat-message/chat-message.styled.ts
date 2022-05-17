@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  margin: 18px;
+  margin: 6px;
+  margin-left: 18px;
+  margin-right: 18px;
 `;
 
 export const Avatar = styled.div`
@@ -28,7 +30,7 @@ export const Msg = styled.div`
 `;
 
 export const Text = styled.span`
-  padding-top: 6px;
+  padding-bottom: 6px;
   color: #1f2937;
   font-size: 12px;
 `;

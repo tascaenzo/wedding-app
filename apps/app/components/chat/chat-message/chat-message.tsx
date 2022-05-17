@@ -28,8 +28,8 @@ export const ChatMessage = ({
               backgroundColor: PRIMARY_LIGHT,
             }}
           >
-            {message}
-            <Text style={{ textAlign: 'left' }}>{time}</Text>
+            <span style={{ color: '#464646' }}>{message}</span>
+            <Text style={{ textAlign: 'right', padding: '0px' }}>{time}</Text>
           </Msg>
         </MsgContainer>
       </Container>
@@ -42,8 +42,8 @@ export const ChatMessage = ({
       <MsgContainer>
         <Text>{author}</Text>
         <Msg>
-          {message}
-          <Text style={{ textAlign: 'right' }}>{time}</Text>
+          <span style={{ color: '#464646' }}>{message}</span>
+          <Text style={{ textAlign: 'right', padding: '0px' }}>{time}</Text>
         </Msg>
       </MsgContainer>
     </Container>
