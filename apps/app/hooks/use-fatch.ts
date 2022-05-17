@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.1.70:3000/api';
+import { API_URL } from '../constants/api-routing';
 
 export function useFetch() {
   function request(method: string) {
@@ -18,9 +18,10 @@ export function useFetch() {
       };
 
       try {
-        const res = await fetch(BASE_URL + resource, {
+        const body = args.body ? JSON.stringify(args.body) : null;
+        const res = await fetch(API_URL + resource, {
           ...requestOptions,
-          body: JSON.stringify(args.body),
+          body,
         });
 
         return await res.json();

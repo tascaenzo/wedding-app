@@ -5,7 +5,7 @@ export const ChatContainer = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
-  overflow-y: scroll;
+  overflow: auto;
 `;
 
 export const ChatWrapper = styled.div`

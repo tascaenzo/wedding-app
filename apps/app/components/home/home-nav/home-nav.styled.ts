@@ -47,12 +47,12 @@ export const TextContainer = styled.div`
   padding-left: 12px;
 `;
 
-export const Text = styled.text`
+export const Text = styled.span`
   color: ${WHITE};
   padding-top: 6px;
 `;
 
-export const TextBold = styled.text`
+export const TextBold = styled.span`
   font-weight: bold;
   font-size: 22px;
   color: ${WHITE};

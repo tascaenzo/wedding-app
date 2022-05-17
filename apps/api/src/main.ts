@@ -9,9 +9,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
+  const app = await NestFactory.create(AppModule, { cors: true });
   const port = process.env.PORT || 3333;
   app.enableCors({
     //origin: ['http://localhost:8080', 'http://192.168.1.70:8080'],
@@ -20,9 +18,10 @@ async function bootstrap() {
     preflightContinue: false,
     credentials: false,
   });
+
   await app.listen(port, '0.0.0.0');
   Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+    `🚀 Application is running on: http://localhost:${port}`
   );
 }
 

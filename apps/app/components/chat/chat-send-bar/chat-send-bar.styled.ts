@@ -9,8 +9,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background-color: ${PRIMARY};
   height: 80px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
   display: flex;
-  padding: 12px;
 `;
 
 export const BorderBar = styled.div`

@@ -27,7 +27,7 @@ export const Msg = styled.div`
   border-radius: 0 12px 12px 12px;
 `;
 
-export const Text = styled.text`
+export const Text = styled.span`
   padding-top: 6px;
   color: #1f2937;
   font-size: 12px;

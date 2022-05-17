@@ -22,10 +22,8 @@ export const Avatar = styled.div`
   border-radius: 15px;
 `;
 
-export const TextBold = styled.text`
+export const TextBold = styled.span`
   font-weight: bold;
   font-size: 20px;
   color: gray;
 `;
-
-export const Text = styled.text``;

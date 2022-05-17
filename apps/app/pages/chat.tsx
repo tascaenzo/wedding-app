@@ -6,34 +6,45 @@ import {
   ChatWrapper,
   Layout,
 } from '../components';
-
-const data = [
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-  { msg: 'duuu', emitter: 'me' },
-  { msg: 'Ciao secondo mesaggio', emitter: 'sss' },
-];
+import { useEffect } from 'react';
+import { CHAT_MESSAGE } from '../constants/api-routing';
+import { useCookies } from 'react-cookie';
+import { useFetch } from '../hooks/use-fatch';
+import { ChatMessage as ChatMessageInterface, User } from '@prisma/client';
+import React from 'react';
+import useChat from '../hooks/use-chat';
 
 function Chat() {
+  const { get } = useFetch();
+  const { messages, setMessages, sendMessage } = useChat();
+  const [cookies] = useCookies(['auth']);
+
+  useEffect(() => {
+    (async () => {
+      const messages: (ChatMessageInterface & { User: User })[] = await get(
+        CHAT_MESSAGE,
+        {}
+      );
+      setMessages(messages);
+    })();
+  }, []);
+
   return (
     <Layout>
       <ChatWrapper>
         <AppBar />
         <ChatContainer>
-          {data.map((msg, index) => (
+          {messages.map((msg, index) => (
             <ChatMessage
               key={index}
-              message={msg.msg}
-              time={'18.00 AM'}
-              author={'Enzo Tasca'}
-              rightAlign={msg.emitter === 'me'}
+              message={msg.message}
+              time={msg.createdAt as unknown as string}
+              author={`${msg.User.firstName} ${msg.User.lastName}`}
+              rightAlign={msg.userId === cookies.auth.id}
             />
           ))}
         </ChatContainer>
-        <ChatSendBar />
+        <ChatSendBar onSend={sendMessage} />
       </ChatWrapper>
     </Layout>
   );

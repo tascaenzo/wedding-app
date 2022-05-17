@@ -23,7 +23,7 @@ export const Btn = styled.div`
   box-shadow: -1px 1px 19px 3px rgba(168, 168, 168, 0.48);
 `;
 
-export const Text = styled.text`
+export const Text = styled.span`
   font-size: 18px;
   padding: 18px;
   color: ${GRAY};
