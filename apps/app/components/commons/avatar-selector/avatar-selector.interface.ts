@@ -1,3 +1,3 @@
 export interface AvatarSelectorProps {
-  onSelect: (avatart: string) => void;
+  onSelect: (avatar: string) => void;
 }

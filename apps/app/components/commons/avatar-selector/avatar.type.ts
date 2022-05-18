@@ -308,6 +308,26 @@ const avatar17 = {
   hairColorRandom: false,
 };
 
+export const avatarName = [
+  'avatar1',
+  'avatar2',
+  'avatar3',
+  'avatar4',
+  'avatar5',
+  'avatar6',
+  'avatar7',
+  'avatar8',
+  'avatar9',
+  'avatar10',
+  'avatar11',
+  'avatar12',
+  'avatar13',
+  'avatar14',
+  'avatar15',
+  'avatar16',
+  'avatar17',
+];
+
 export const avatars = new Map([
   ['avatar1', genConfig(avatar1 as AvatarFullConfig)],
   ['avatar2', genConfig(avatar2 as AvatarFullConfig)],

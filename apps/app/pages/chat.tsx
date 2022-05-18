@@ -40,7 +40,7 @@ function Chat() {
                 key={index}
                 message={msg.message}
                 time={msg.time}
-                author={`${msg.User.firstName} ${msg.User.lastName}`}
+                author={msg.User}
                 rightAlign={msg.userId === cookies.auth.id}
               />
             );

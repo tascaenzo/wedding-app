@@ -8,7 +8,6 @@ import { CREATE_USER } from '@wedding/app/constants/api-routing';
 import { useFetch } from '@wedding/app/hooks/use-fatch';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import { async } from 'rxjs';
 
 export const LoginForm = () => {
   const { post } = useFetch();
@@ -41,7 +40,7 @@ export const LoginForm = () => {
   const selectAvatar = async (avatar: string) => {
     try {
       const response = await post(CREATE_USER, { body: { ...data, avatar } });
-      setCookie('auth', response);
+      setCookie('auth', response, { maxAge: 3600 * 24 * 15 }); //15 giorni
       router.push(HOME);
     } catch (error) {
       console.log(error);
@@ -49,9 +48,9 @@ export const LoginForm = () => {
   };
 
   return (
-    <Form>
+    <>
       {step === 0 && (
-        <>
+        <Form>
           <div>
             <TextField
               onChange={(firstName) => setData({ ...data, firstName })}
@@ -71,10 +70,10 @@ export const LoginForm = () => {
           </div>
           <br />
           <Button onClick={onSubmit}>Accedi</Button>
-        </>
+        </Form>
       )}
 
       {step === 1 && <AvatarSelector onSelect={selectAvatar} />}
-    </Form>
+    </>
   );
 };

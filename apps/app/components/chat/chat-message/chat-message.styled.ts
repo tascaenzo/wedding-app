@@ -7,13 +7,6 @@ export const Container = styled.div`
   margin-right: 18px;
 `;
 
-export const Avatar = styled.div`
-  background-color: gray;
-  height: 32px;
-  width: 32px;
-  border-radius: 100%;
-`;
-
 export const MsgContainer = styled.div`
   margin: 8px;
   display: flex;

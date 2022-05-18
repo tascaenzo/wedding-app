@@ -1,6 +1,6 @@
 import { Container, SelectContainer, Text } from './avatar-selector.styled';
 import Avatar from 'react-nice-avatar';
-import { avatars } from './avatar.type';
+import { avatarName, avatars } from './avatar.type';
 import { AvatarSelectorProps } from './avatar-selector.interface';
 
 export const AvatarSelector = ({ onSelect }: AvatarSelectorProps) => {
@@ -8,15 +8,15 @@ export const AvatarSelector = ({ onSelect }: AvatarSelectorProps) => {
     <Container>
       <Text>Seleziona il tuo avatar</Text>
       <SelectContainer>
-        {[...avatars].map((config, index) => (
+        {avatarName.map((name, index) => (
           <div
-            onClick={() => onSelect(`avatart${index + 1}`)}
+            onClick={() => onSelect(`avatar${index + 1}`)}
             key={index}
             style={{ paddingBottom: '22px' }}
           >
             <Avatar
               style={{ width: '8rem', height: '8rem', float: 'left' }}
-              {...config}
+              {...avatars.get(name)}
             />
           </div>
         ))}

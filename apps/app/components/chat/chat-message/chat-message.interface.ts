@@ -1,5 +1,7 @@
+import { User } from "@prisma/client";
+
 export interface ChatMessageProps {
-  author: string;
+  author: User;
   time: string;
   message: string;
   rightAlign: boolean;
