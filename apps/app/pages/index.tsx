@@ -1,4 +1,4 @@
-import { HomeCard, HomeHeader, HomeNav, Layout } from '@wedding/app/components';
+import { Card, HomeHeader, HomeNav, Layout } from '@wedding/app/components';
 import { GiDiamondRing } from 'react-icons/gi';
 import { FaGlassCheers } from 'react-icons/fa';
 import { BsInfoLg } from 'react-icons/bs';
@@ -9,20 +9,20 @@ export function Index() {
       <HomeHeader />
       <HomeNav />
 
-      <HomeCard
-        text="Segui la cermonia"
+      <Card
+        text="Segui la cerimonia"
         color="#f87171"
         icon={<GiDiamondRing size={40} color="#FFF" />}
       />
       <br />
-      <HomeCard
-        text="Segui la cermonia"
+      <Card
+        text="Vai al banchetto"
         color="#60a5fa"
         icon={<FaGlassCheers size={40} color="#FFF" />}
       />
       <br />
-      <HomeCard
-        text="Segui la cermonia"
+      <Card
+        text="Info"
         color="#c084fc"
         icon={<BsInfoLg size={40} color="#FFF" />}
       />

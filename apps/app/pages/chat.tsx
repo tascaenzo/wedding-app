@@ -6,28 +6,13 @@ import {
   ChatWrapper,
   Layout,
 } from '../components';
-import { useEffect } from 'react';
-import { CHAT_MESSAGE } from '../constants/api-routing';
 import { useCookies } from 'react-cookie';
-import { useFetch } from '../hooks/use-fatch';
-import { ChatMessage as ChatMessageInterface, User } from '@prisma/client';
-import React from 'react';
 import useChat from '../hooks/use-chat';
+import React from 'react';
 
 function Chat() {
-  const { get } = useFetch();
-  const { messages, setMessages, sendMessage } = useChat();
+  const { messages, sendMessage } = useChat();
   const [cookies] = useCookies(['auth']);
-
-  useEffect(() => {
-    (async () => {
-      const messages: (ChatMessageInterface & { User: User })[] = await get(
-        CHAT_MESSAGE,
-        {}
-      );
-      setMessages(messages);
-    })();
-  }, []);
 
   return (
     <Layout>
@@ -41,7 +26,7 @@ function Chat() {
                 message={msg.message}
                 time={msg.time}
                 author={msg.User}
-                rightAlign={msg.userId === cookies.auth.id}
+                rightAlign={msg.userId === cookies?.auth?.id}
               />
             );
           })}

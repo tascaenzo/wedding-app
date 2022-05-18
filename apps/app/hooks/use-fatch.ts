@@ -1,4 +1,5 @@
 import { API_URL } from '../constants/api-routing';
+import { trackPromise } from 'react-promise-tracker';
 
 export function useFetch() {
   function request(method: string) {
@@ -19,10 +20,7 @@ export function useFetch() {
 
       try {
         const body = args.body ? JSON.stringify(args.body) : null;
-        const res = await fetch(API_URL + resource, {
-          ...requestOptions,
-          body,
-        });
+        const res = await trackPromise<Response>(fetch(API_URL + resource, {...requestOptions, body}));
 
         return await res.json();
       } catch (error: unknown) {

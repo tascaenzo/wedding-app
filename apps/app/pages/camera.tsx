@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Camera from 'react-html5-camera-photo';
+import { Loader } from '../components';
 
 export default function Test() {
   const [isSSR, setIsSSR] = useState(true);

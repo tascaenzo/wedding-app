@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   border-radius: 12px;
   padding-left: 8px;
   padding-right: 8px;
@@ -12,6 +12,17 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
+  width: 100%;
+  background-color: transparent;
+  color: ${GRAY};
+  font-size: 16px;
+  border-color: transparent;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const TextArea = styled.textarea`
   width: 100%;
   background-color: transparent;
   color: ${GRAY};

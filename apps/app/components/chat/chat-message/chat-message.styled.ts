@@ -18,6 +18,7 @@ export const Msg = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #d1d5db;
+  word-wrap: break-word;
   padding: 10px;
   border-radius: 0 12px 12px 12px;
 `;

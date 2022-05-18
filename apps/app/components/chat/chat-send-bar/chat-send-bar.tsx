@@ -1,4 +1,7 @@
 import { PRIMARY, PRIMARY_LIGHT } from '@wedding/app/constants';
+import { ChatSendBarProps } from './chat-send-bar.interface';
+import { RiSendPlane2Fill } from 'react-icons/ri';
+import { useState } from 'react';
 import {
   Container,
   BorderBar,
@@ -6,9 +9,6 @@ import {
   Btn,
   Input,
 } from './chat-send-bar.styled';
-import { RiSendPlane2Fill } from 'react-icons/ri';
-import { ChatSendBarProps } from './chat-send-bar.interface';
-import { useState } from 'react';
 
 export const ChatSendBar = ({ onSend }: ChatSendBarProps) => {
   const [message, setMessage] = useState<string>('');
@@ -26,7 +26,10 @@ export const ChatSendBar = ({ onSend }: ChatSendBarProps) => {
       </div>
       <Container>
         <InputContainer>
-          <Input value={message} onChange={(event) => setMessage(event.target.value)} />
+          <Input
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+          />
           <Btn onClick={onClick}>
             <RiSendPlane2Fill size={22} color={PRIMARY_LIGHT} />
           </Btn>

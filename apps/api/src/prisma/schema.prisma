@@ -13,6 +13,7 @@ model User {
   lastName    String
   avatar      String
   createdAt   DateTime      @default(now())
+  role        String        @default("USER")
   ChatMessage ChatMessage[]
 }
 

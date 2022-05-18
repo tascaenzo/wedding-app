@@ -3,4 +3,5 @@ export interface TextFieldInterface {
   icon?: JSX.Element;
   placeholder?: string;
   onChange?: (value: string) => void;
+  type?: 'input' | 'textarea';
 }

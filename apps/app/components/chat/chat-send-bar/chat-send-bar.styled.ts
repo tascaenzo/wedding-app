@@ -8,7 +8,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background-color: ${PRIMARY};
-  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
   justify-content: center;
   align-items: center;
   padding-left: 12px;

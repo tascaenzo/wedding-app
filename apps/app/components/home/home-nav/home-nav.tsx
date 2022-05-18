@@ -10,7 +10,7 @@ import {
 } from './home-nav.styled';
 import { BsFillChatDotsFill } from 'react-icons/bs';
 import { MdNotificationsActive } from 'react-icons/md';
-import { CHAT, PRIMARY, WHITE } from '@wedding/app/constants';
+import { CHAT, NOTIFICATIONS, PRIMARY, WHITE } from '@wedding/app/constants';
 import { useRouter } from 'next/router';
 
 export const HomeNav = () => {
@@ -21,10 +21,10 @@ export const HomeNav = () => {
       <TopBar />
       <Content>
         <BtnContainer>
-          <Circle>
+          <Circle onClick={() => router.push(NOTIFICATIONS)}>
             <MdNotificationsActive size={28} color={WHITE} />
           </Circle>
-          <TextContainer>
+          <TextContainer onClick={() => router.push(NOTIFICATIONS)}>
             <TextBold>10</TextBold>
             <Text>Notifiche</Text>
           </TextContainer>

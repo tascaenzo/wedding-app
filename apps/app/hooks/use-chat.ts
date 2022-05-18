@@ -1,18 +1,30 @@
-import { API_URL } from './../constants/api-routing';
+import { API_URL, CHAT_MESSAGE } from './../constants/api-routing';
 import { useEffect, useRef, useState } from 'react';
 import socketIOClient, { Socket } from 'socket.io-client';
 import { useCookies } from 'react-cookie';
 import { ChatMessage, User } from '.prisma/client';
+import { useFetch } from './use-fatch';
 
 const NEW_CHAT_MESSAGE_EVENT = 'message';
 
 const useChat = () => {
-  const [messages, setMessages] = useState<(ChatMessage & { User: User })[]>([]);
+  const [messages, setMessages] = useState<(ChatMessage & { User: User })[]>(
+    []
+  );
   const socketRef = useRef<Socket>();
   const [cookies] = useCookies(['auth']);
+  const { get } = useFetch();
 
   useEffect(() => {
     socketRef.current = socketIOClient(API_URL);
+
+    socketRef.current.on('connect', async () => {
+      const data: (ChatMessage & { User: User })[] = await get(
+        CHAT_MESSAGE,
+        {}
+      );
+      setMessages(data);
+    });
 
     socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
       const incomingMessage = {
@@ -34,7 +46,7 @@ const useChat = () => {
     });
   };
 
-  return { messages, sendMessage, setMessages };
+  return { messages, sendMessage };
 };
 
 export default useChat;
