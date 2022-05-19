@@ -5,7 +5,7 @@ import { Container } from './loader.styled';
 
 export const Loader = () => {
   const timer = async () => {
-    trackPromise(new Promise((resolve) => setTimeout(resolve, 1000 * 4)));
+    trackPromise(new Promise((resolve) => setTimeout(resolve, 1000 * 3)));
   };
 
   useEffect(() => {

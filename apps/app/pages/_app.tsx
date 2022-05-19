@@ -9,7 +9,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png"></link>
-        <meta name="theme-color" content='#FFF' />
+        <meta name="theme-color" content="#FFF" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
         <title>Wedding App</title>
       </Head>
       <main>
