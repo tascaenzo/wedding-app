@@ -4,6 +4,18 @@ import {
   Layout,
   CeremonyPage1,
   CeremonyPage2,
+  CeremonyPage3,
+  CeremonyPage4,
+  CeremonyPage5,
+  CeremonyPage6,
+  CeremonyPage7,
+  CeremonyPage8,
+  CeremonyPage9,
+  CeremonyPage10,
+  CeremonyPage11,
+  CeremonyPage12,
+  CeremonyPage13,
+  CeremonyPage14,
 } from '../components';
 
 export function Ceremony() {
@@ -15,16 +27,33 @@ export function Ceremony() {
           "Canto d'ingresso",
           'Riti di introduzione',
           'Canto di aspersione',
-          'Orazione coletta',
-          'Prima lettura',
-          'Salmo responsoriale',
-          'Seconda lettura',
-          'Canto al vangelo',
+          'I Lettura',
+          'Salmo',
+          'II Lettura',
+          'Vangelo',
           'Liturgiua del matrimonio',
+          'Preghiera dei fedeli',
+          'Presentazione dei doni',
+          'Preghiera Eucaristica',
+          'Canti di comunione',
+          'Riti di conclusione',
+          'Canto finale',
         ]}
       >
         <CeremonyPage1 />
         <CeremonyPage2 />
+        <CeremonyPage3 />
+        <CeremonyPage4 />
+        <CeremonyPage5 />
+        <CeremonyPage6 />
+        <CeremonyPage7 />
+        <CeremonyPage8 />
+        <CeremonyPage9 />
+        <CeremonyPage10 />
+        <CeremonyPage11 />
+        <CeremonyPage12 />
+        <CeremonyPage13 />
+        <CeremonyPage14 />
       </BtnTab>
     </Layout>
   );

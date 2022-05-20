@@ -3,7 +3,9 @@ import { Center, Container, Title } from './ceremony.styled';
 export const CeremonyPage1 = () => {
   return (
     <Container>
-      <Center><Title>Sposa amata</Title></Center>
+      <Center>
+        <Title>Sposa amata</Title>
+      </Center>
       <br />
       <Center>
         <p>Dolce amica, sposa amata mia</p>
