@@ -3,10 +3,13 @@ import { GiDiamondRing } from 'react-icons/gi';
 import { FaGlassCheers } from 'react-icons/fa';
 import { BsInfoLg } from 'react-icons/bs';
 import { useRouter } from 'next/router';
-import { CEREMONY } from '../constants';
+import { CEREMONY, INFO } from '../constants';
+import { API_URL } from '../constants/api-routing';
 
 export function Index() {
   const { push } = useRouter();
+
+  console.log('TEST', API_URL)
 
   return (
     <Layout>
@@ -27,6 +30,7 @@ export function Index() {
       />
       <br />
       <Card
+        onClick={() => push(INFO)}
         text="Info"
         color="#c084fc"
         icon={<BsInfoLg size={40} color="#FFF" />}

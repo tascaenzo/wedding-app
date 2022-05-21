@@ -1,4 +1,5 @@
-export const API_URL = 'http://192.168.1.70:3000';
+// export const API_URL = 'http://192.168.1.70:3000';
+export const API_URL = process.env.NX_API_HOST;
 
 export const CREATE_USER = '/users';
 export const CREATE_NOTIFICATION = '/notifications';
