@@ -31,10 +31,11 @@ export const Container = styled.div`
   margin-right: 12px;
 `;
 
-export const ImageContainer = styled.div`
-  height: 200px;
-  height: 300px;
-  background-position: cover;
-  border-radius: 12px;
-  margin: 22px;
-`;
+export const CardContainer = styled.div`
+  background-color: ${WHITE};
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-align: center;
+  padding: 18px;
+  margin: 18px;
+  border-radius: 10px;
+`

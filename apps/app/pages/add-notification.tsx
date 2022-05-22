@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -22,7 +23,7 @@ export function AddNotification() {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (cookies.auth?.role !== 'ADMIN') push(NOTIFICATIONS);
+    if (cookies.auth?.role !== Role.ADMIN) push(NOTIFICATIONS);
   }, [cookies.auth?.role, push]);
 
   const onSubmit = async () => {

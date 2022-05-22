@@ -1,13 +1,13 @@
-import { MdDriveFileRenameOutline } from 'react-icons/md';
-import { AvatarSelector, Loader, TextField, TextFieldError } from '../commons';
-import { Button, Form } from './login-form.styled';
-import { GRAY, HOME } from '@wedding/app/constants';
-import { Prisma } from '@prisma/client';
-import { useState } from 'react';
+import { AvatarSelector, TextField, TextFieldError } from '../commons';
 import { CREATE_USER } from '@wedding/app/constants/api-routing';
+import { MdDriveFileRenameOutline } from 'react-icons/md';
 import { useFetch } from '@wedding/app/hooks/use-fatch';
+import { GRAY, HOME } from '@wedding/app/constants';
+import { Button, Form } from './login-form.styled';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
+import { Prisma } from '@prisma/client';
+import { useState } from 'react';
 
 export const LoginForm = () => {
   const { post } = useFetch();

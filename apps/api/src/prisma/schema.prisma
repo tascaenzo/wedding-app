@@ -13,7 +13,7 @@ model User {
   lastName    String
   avatar      String
   createdAt   DateTime      @default(now())
-  role        String        @default("USER")
+  role        Role          @default(USER)
   ChatMessage ChatMessage[]
 }
 
@@ -30,4 +30,15 @@ model PushMessage {
   id        String   @id @default(cuid())
   message   String
   createdAt DateTime @default(now())
+}
+
+model Meta {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
+enum Role {
+  ADMIN
+  USER
 }

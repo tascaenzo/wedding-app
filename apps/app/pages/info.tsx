@@ -2,8 +2,8 @@ import {
   AppBar,
   Btn,
   BtnContainer,
-  ImageContainer,
   InfoCermonia,
+  InfoGeographic,
   Layout,
 } from '../components';
 import React, { useState } from 'react';
@@ -15,20 +15,15 @@ export function Info() {
       <AppBar />
       <BtnContainer>
         <Btn onClick={() => setTab(0)} selected={tab === 0}>
-          Cermonia
+          Indicazioni
         </Btn>
         <Btn onClick={() => setTab(1)} selected={tab === 1}>
-          Ristorante
+        Cermonia
         </Btn>
       </BtnContainer>
       <br />
-      {tab === 0 && <InfoCermonia />}
-      {/* <ImageContainer
-        style={{
-          backgroundImage:
-            'url("https://media.istockphoto.com/photos/acireale-the-duomo-and-the-church-basilica-dei-santi-pietro-e-paolo-picture-id1256741228")',
-        }}
-      /> */}
+      {tab === 0 && <InfoGeographic />}
+      {tab === 1 && <InfoCermonia />}
     </Layout>
   );
 }
