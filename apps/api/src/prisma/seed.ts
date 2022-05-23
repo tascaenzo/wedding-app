@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Role } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -7,9 +7,15 @@ async function seed() {
     data: {
       firstName: "Enzo",
       lastName: "Tasca",
-      avatar: 'avatar1'
+      avatar: 'avatar1',
+      role: Role.ADMIN,
     },
   });
+
+  await prisma.meta.create({data: {
+    key: 'PARTY_ENABLED',
+    value: 'false'
+  }})
 
   console.log(`Database has been seeded. 🌱`);
 }

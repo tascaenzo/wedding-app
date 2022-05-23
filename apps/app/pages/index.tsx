@@ -3,13 +3,10 @@ import { GiDiamondRing } from 'react-icons/gi';
 import { FaGlassCheers } from 'react-icons/fa';
 import { BsInfoLg } from 'react-icons/bs';
 import { useRouter } from 'next/router';
-import { CEREMONY, INFO } from '../constants';
-import { API_URL } from '../constants/api-routing';
+import { CEREMONY, INFO, PARTY } from '../constants';
 
 export function Index() {
   const { push } = useRouter();
-
-  console.log('TEST', API_URL)
 
   return (
     <Layout>
@@ -24,6 +21,7 @@ export function Index() {
       />
       <br />
       <Card
+        onClick={() => push(PARTY)}
         text="Vai al banchetto"
         color="#60a5fa"
         icon={<FaGlassCheers size={40} color="#FFF" />}

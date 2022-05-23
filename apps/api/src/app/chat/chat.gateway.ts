@@ -19,6 +19,9 @@ export class ChatGateway {
     @MessageBody() message: { message: string; userId: string }
   ) {
     const data = await this.chatService.createChatMessage(message);
+    const count = await this.chatService.countMessage();
+
     this.server.emit('message', data);
+    this.server.emit('message_count', count)
   }
 }

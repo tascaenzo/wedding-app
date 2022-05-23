@@ -5,11 +5,13 @@ import { PrismaService } from '../prisma.service';
 export class MetaService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  update(key: string, value: boolean) {
-    return this.prismaService.meta.update({
+  async update(key: string, value: boolean) {
+    await this.prismaService.meta.update({
       where: { key },
-      data: { value: value.toString() },
+      data: { value: value === true ? 'true' : 'false' },
     });
+
+    return this.findOne(key);
   }
 
   findOne(key: string) {

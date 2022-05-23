@@ -7,13 +7,13 @@ export class MetaController {
 
   @Put(':key')
   async update(@Body() dto: { value: boolean }, @Param('key') key: string) {
-    return this.metaService.update(key, dto.value);
+    const data = await this.metaService.update(key, dto.value);
+    return { ...data, value: data.value === 'true' };
   }
 
   @Get(':key')
   async get(@Param('key') key: string) {
     const data = await this.metaService.findOne(key);
-
-    return { ...data, value: Boolean(data.value) };
+    return { ...data, value: data.value === 'true' };
   }
 }
