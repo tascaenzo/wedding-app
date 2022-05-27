@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx run-many --parallel --target=serve --projects=app,api",
-    "build": "nx build",
+    "build": "npx nx run api:build --configuration=production && npx nx run app:export",
     "test": "nx test"
   },
   "private": true,
