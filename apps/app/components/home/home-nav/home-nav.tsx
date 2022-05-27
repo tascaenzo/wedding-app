@@ -12,11 +12,10 @@ import { BsFillChatDotsFill } from 'react-icons/bs';
 import { MdNotificationsActive } from 'react-icons/md';
 import { CHAT, NOTIFICATIONS, PRIMARY, WHITE } from '@wedding/app/constants';
 import { useRouter } from 'next/router';
-import useMessageCount from '@wedding/app/hooks/use-message-count';
+import { HomeNavProps } from './home-nav.interface';
 
-export const HomeNav = () => {
+export const HomeNav = ({ messageCount, notificationCount }: HomeNavProps) => {
   const router = useRouter();
-  const { messageCount, notificationCount } = useMessageCount();
 
   return (
     <>

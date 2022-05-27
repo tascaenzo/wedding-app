@@ -17,7 +17,7 @@ export const Loader = () => {
       <Player
         autoplay
         loop
-        //src="https://assets10.lottiefiles.com/packages/lf20_7ub0glk3.json"
+        // src="https://assets10.lottiefiles.com/packages/lf20_7ub0glk3.json"
         src="https://assets4.lottiefiles.com/packages/lf20_ne4g7s9l.json"
         style={{ height: '300px', width: '300px' }}
       />

@@ -17,18 +17,15 @@ const useMessageCount = () => {
   const socketRef1 = useRef<Socket>();
   const { get } = useFetch();
 
-  const fatchData = async () => {
-    const dataMessage: { message: number } = await get(COUNT_MESSAGE, {});
-    return dataMessage;
-  };
-
   useEffect(() => {
     socketRef1.current = socketIOClient(API_URL);
 
     socketRef1.current.on('connect', async () => {
-      await fatchData();
-      //const dataNotification: { notifications: number } = await get(COUNT_NOTIFICATION, {});
-      //setMessagesCount(0);
+      const dataMessage = await get(COUNT_MESSAGE, {});
+      const dataNotification = await get(COUNT_NOTIFICATION, {});
+
+      setMessagesCount(dataMessage.message);
+      setNotificationCount(dataNotification.notifications);
     });
 
     socketRef1.current.on(COUNT_MESSAGE_EVENT, (data) => {

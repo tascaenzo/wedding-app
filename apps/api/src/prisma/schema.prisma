@@ -29,6 +29,7 @@ model ChatMessage {
 model PushMessage {
   id        String   @id @default(cuid())
   message   String
+  time      String?
   createdAt DateTime @default(now())
 }
 
