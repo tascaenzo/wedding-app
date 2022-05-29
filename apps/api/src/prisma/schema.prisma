@@ -33,6 +33,21 @@ model PushMessage {
   createdAt DateTime @default(now())
 }
 
+model Table {
+  id      String    @id @default(cuid())
+  number  Int
+  label   String
+  Invited Invited[]
+}
+
+model Invited {
+  id        String @id @default(cuid())
+  firstName String
+  lastName  String
+  tableId   String
+  table     Table  @relation(fields: [tableId], references: [id])
+}
+
 model Meta {
   id    String @id @default(cuid())
   key   String @unique
