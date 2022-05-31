@@ -9,7 +9,7 @@ export const Btn = styled.div`
   height: 56px;
   width: 56px;
   background-color: ${PRIMARY};
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   margin: 22px;

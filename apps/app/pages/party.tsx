@@ -27,7 +27,7 @@ export function Party() {
   const [cookies, setCookie] = useCookies(['auth']);
   const [user, setUser] = useState<User>(null);
   const [tab, setTab] = useState(0);
-  const [tables, setTables] = useState<(Table & { Invited: Invited })[]>([]);
+  const [tables, setTables] = useState<(Table & { Invited: Invited[] })[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -68,7 +68,7 @@ export function Party() {
           </BtnContainer>
           <br />
           {tab === 0 && <h1>Menu</h1>}
-          {tab === 1 && <TableList />}
+          {tab === 1 && <TableList tables={tables} />}
         </>
       )}
       {user && user.role === Role.ADMIN && (
