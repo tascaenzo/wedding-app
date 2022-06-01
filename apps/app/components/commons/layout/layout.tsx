@@ -1,4 +1,4 @@
-import { HOME, LOGIN } from '@wedding/app/constants';
+import { LOGIN } from '@wedding/app/constants';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -15,7 +15,6 @@ export const Layout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     if (router.asPath !== LOGIN && !cookies.auth) router.push(LOGIN);
-    if (router.asPath === LOGIN && cookies.auth) router.push(HOME);
     setLoading(false);
   }, [cookies.auth, router]);
 
