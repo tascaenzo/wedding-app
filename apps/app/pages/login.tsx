@@ -9,8 +9,9 @@ export const Login = () => {
   const [cookies] = useCookies(['auth']);
 
   useEffect(() => {
-    if (cookies.auth) push(HOME);
-  }, [cookies.auth, push]);
+    if (cookies.auth !== undefined) push(HOME);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Layout>
