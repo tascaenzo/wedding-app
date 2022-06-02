@@ -6,6 +6,7 @@ import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { ChatModule } from './chat/chat.module';
 import { MetaModule } from './meta/meta.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { MetaModule } from './meta/meta.module';
     NotificationsModule,
     MetaModule,
     TablesModule,
+    GalleryModule,
   ],
   controllers: [],
   providers: [PrismaService],

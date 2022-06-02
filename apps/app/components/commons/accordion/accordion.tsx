@@ -9,7 +9,7 @@ export const Accordion = ({ children, title }: AccordionProps) => {
 
   return (
     <Container>
-      <Title /* style={{ba}} */ onClick={() => setIsOpen(!isOpen)}>
+      <Title onClick={() => setIsOpen(!isOpen)}>
         <span>{title}</span>
         <span>
           {isOpen ? (
