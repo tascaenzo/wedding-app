@@ -7,3 +7,4 @@ export * from './loader';
 export * from './circle-btn';
 export * from './card';
 export * from './btn-tab';
+export * from './accordion';

@@ -1,6 +1,9 @@
+import { BsFillLockFill, BsFillUnlockFill } from 'react-icons/bs';
 import { Invited, Role, Table, User } from '@prisma/client';
+import { useFetch } from '../hooks/use-fatch';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { WHITE } from '../constants';
 import {
   AppBar,
   Await,
@@ -8,17 +11,15 @@ import {
   BtnContainer,
   CircleBtn,
   Layout,
+  Menu,
   Table as TableList,
 } from '../components';
-import { WHITE } from '../constants';
 import {
   GET_META,
   GET_TABLE,
   GET_USER,
   SET_META,
 } from '../constants/api-routing';
-import { useFetch } from '../hooks/use-fatch';
-import { BsFillLockFill, BsFillUnlockFill } from 'react-icons/bs';
 const KEY = 'PARTY_ENABLED';
 
 export function Party() {
@@ -67,7 +68,7 @@ export function Party() {
             </Btn>
           </BtnContainer>
           <br />
-          {tab === 0 && <h1>Menu</h1>}
+          {tab === 0 && <Menu />}
           {tab === 1 && <TableList tables={tables} />}
         </>
       )}
