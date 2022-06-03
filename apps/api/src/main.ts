@@ -26,13 +26,15 @@ async function bootstrap() {
   const port = process.env.NX_PORT || 3333;
 
   app.enableCors({
-    //origin: ['http://localhost:8080', 'http://192.168.1.70:8080'],
+    // origin: ['http://localhost:8080', 'http://192.168.1.70:8080'],
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
     credentials: false,
   });
-  app.setGlobalPrefix('api');
+
+  // app.setGlobalPrefix('api');
+  
   await app.listen(port, '0.0.0.0');
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
