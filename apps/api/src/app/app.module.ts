@@ -19,7 +19,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     GalleryModule,
     ServeStaticModule.forRoot({
       rootPath: process.env.NX_UPLOAD_FILE,
-      exclude: ['/api*'],
+      serveRoot: "/static"
     }),
   ],
   controllers: [],
