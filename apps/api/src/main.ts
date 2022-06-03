@@ -32,7 +32,7 @@ async function bootstrap() {
     preflightContinue: false,
     credentials: false,
   });
-
+  app.setGlobalPrefix('api');
   await app.listen(port, '0.0.0.0');
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
