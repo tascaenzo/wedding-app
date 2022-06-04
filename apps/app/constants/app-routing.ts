@@ -6,3 +6,4 @@ export const CEREMONY = '/ceremony';
 export const PARTY = '/party';
 export const INFO = '/info';
 export const ADD_NOTIFICATIONS = '/add-notification';
+export const GALLERY = '/gallery';

@@ -1,5 +1,6 @@
 import { GalleryService } from './gallery.service';
 import {
+  Body,
   Controller,
   Get,
   Post,
@@ -19,7 +20,7 @@ export class GalleryController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile() file) {
-    return this.galleryService.toFile(file.buffer, file.originalname);
+  uploadFile(@UploadedFile() file, @Body() data) {
+    return this.galleryService.toFile(file.buffer, file.originalname, data.userId);
   }
 }

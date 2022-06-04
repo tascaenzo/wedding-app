@@ -2,8 +2,9 @@ import { Card, HomeHeader, HomeNav, Layout } from '@wedding/app/components';
 import { GiDiamondRing } from 'react-icons/gi';
 import { FaGlassCheers } from 'react-icons/fa';
 import { BsInfoLg } from 'react-icons/bs';
+import { BiPhotoAlbum } from 'react-icons/bi';
 import { useRouter } from 'next/router';
-import { CEREMONY, INFO, PARTY } from '../constants';
+import { CEREMONY, INFO, PARTY, GALLERY } from '../constants';
 import useMessageCount from '@wedding/app/hooks/use-message-count';
 
 export function Index() {
@@ -29,6 +30,13 @@ export function Index() {
         text="Vai al banchetto"
         color="#60a5fa"
         icon={<FaGlassCheers size={40} color="#FFF" />}
+      />
+      <br />
+      <Card
+        onClick={() => push(GALLERY)}
+        text="Galleria"
+        color="#31b74a"
+        icon={<BiPhotoAlbum size={40} color="#FFF" />}
       />
       <br />
       <Card

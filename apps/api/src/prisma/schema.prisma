@@ -56,10 +56,11 @@ model Meta {
 }
 
 model Media {
-  id     String  @id @default(cuid())
-  url    String
-  userId String?
-  user   User?   @relation(fields: [userId], references: [id])
+  id        String   @id @default(cuid())
+  url       String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
 }
 
 enum Role {

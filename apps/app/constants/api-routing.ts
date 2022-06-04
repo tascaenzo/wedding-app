@@ -14,3 +14,6 @@ export const COUNT_MESSAGE = '/chat/count';
 export const COUNT_NOTIFICATION = '/notifications/count';
 
 export const GET_TABLE = '/tables';
+
+export const UPLOAD_PHOTO = '/gallery/upload';
+export const GET_GALLERY = '/gallery';

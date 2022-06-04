@@ -1,21 +1,29 @@
-import React, { useRef } from 'react';
+import { AppBar, GalleryImg, Layout, UploadImg } from '../components';
+import { GET_GALLERY } from '../constants/api-routing';
+import { useFetch } from '../hooks/use-fatch';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Media } from '@prisma/client';
 
-const Gallery = ({ onFileSelect }) => {
-  const fileInput = useRef(null);
+const Gallery = () => {
+  const [data, setData] = useState<Media[]>([]);
+  const { get } = useFetch();
 
-  const handleFileInput = (e) => {
-    // handle validations
-    onFileSelect(e.target.files[0]);
-  };
+  const fatchData = useCallback(async () => {
+    const media = await get(GET_GALLERY, {});
+    setData(media);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+  useEffect(()=> {
+    fatchData();
+  }, [fatchData])
 
   return (
-    <div className="file-uploader">
-      <input type="file" onChange={handleFileInput} />
-      <button
-        onClick={(e) => fileInput.current && fileInput.current.click()}
-        className="btn btn-primary"
-      />
-    </div>
+    <Layout>
+      <AppBar />
+      <UploadImg callback={() => fatchData()} />
+      <GalleryImg data={data} />
+    </Layout>
   );
 };
 
