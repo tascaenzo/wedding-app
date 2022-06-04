@@ -1,10 +1,21 @@
-export const Gallery = () => {
+import React, { useRef } from 'react';
+
+const Gallery = ({ onFileSelect }) => {
+  const fileInput = useRef(null);
+
+  const handleFileInput = (e) => {
+    // handle validations
+    onFileSelect(e.target.files[0]);
+  };
+
   return (
-    <form action="/action_page.php">
-      <label htmlFor="img">Select image:</label>
-      <input type="file" id="img" name="img" accept="image/*" />
-      <input type="submit"></input>
-    </form>
+    <div className="file-uploader">
+      <input type="file" onChange={handleFileInput} />
+      <button
+        onClick={(e) => fileInput.current && fileInput.current.click()}
+        className="btn btn-primary"
+      />
+    </div>
   );
 };
 

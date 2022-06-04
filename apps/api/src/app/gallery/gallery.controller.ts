@@ -1,6 +1,7 @@
 import { GalleryService } from './gallery.service';
 import {
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -11,9 +12,14 @@ import { FileInterceptor } from '@nestjs/platform-express';
 export class GalleryController {
   constructor(private readonly galleryService: GalleryService) {}
 
+  @Get()
+  getMedia() {
+    return this.galleryService.getMedia();
+  }
+
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   uploadFile(@UploadedFile() file) {
-    this.galleryService.toFile(file.buffer, file.originalname);
+    return this.galleryService.toFile(file.buffer, file.originalname);
   }
 }
