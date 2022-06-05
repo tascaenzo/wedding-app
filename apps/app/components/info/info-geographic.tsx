@@ -1,9 +1,10 @@
-import { Container, CardContainer } from './info.styled';
+import { Container, CardContainer, OutlineBtn } from './info.styled';
+import { SiGooglemaps } from 'react-icons/si';
 
 export const InfoGeographic = () => {
   return (
     <Container>
-      <strong style={{paddingLeft: '20px'}}>Cermonia</strong>
+      <strong style={{ paddingLeft: '20px' }}>Cermonia</strong>
       <CardContainer>
         <p>Martedi 7 Giugno 2022 ore 16.30</p>
         <p>Basilica Cattedrale Maria SS. Annunziata “Duomo” di Acireale</p>
@@ -15,12 +16,15 @@ export const InfoGeographic = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Indicazioni stradali
+            <OutlineBtn>
+              <span>Indicazioni stradali</span>
+              <SiGooglemaps size={16} />
+            </OutlineBtn>
           </a>
         </small>
         <br />
       </CardContainer>
-      <strong style={{paddingLeft: '20px'}}>Banchetto</strong>
+      <strong style={{ paddingLeft: '20px' }}>Banchetto</strong>
       <CardContainer>
         <p>Enzo e Rsosalinda</p>
         <p>
@@ -37,7 +41,10 @@ export const InfoGeographic = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Indicazioni stradali
+            <OutlineBtn>
+              <span>Indicazioni stradali</span>
+              <SiGooglemaps size={16} />
+            </OutlineBtn>
           </a>
         </small>
         <br />

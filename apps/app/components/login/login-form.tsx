@@ -8,8 +8,9 @@ import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { Prisma } from '@prisma/client';
 import { useState } from 'react';
+import { LoginFormProps } from './login-form.interface';
 
-export const LoginForm = () => {
+export const LoginForm = ({ setIsLoading }: LoginFormProps) => {
   const { post } = useFetch();
   const router = useRouter();
 
@@ -39,6 +40,7 @@ export const LoginForm = () => {
 
   const selectAvatar = async (avatar: string) => {
     try {
+      setIsLoading();
       const response = await post(CREATE_USER, { body: { ...data, avatar } });
       setCookie('auth', response, { maxAge: 3600 * 24 * 15 }); //15 giorni
       router.push(HOME);

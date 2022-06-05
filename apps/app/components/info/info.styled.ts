@@ -32,10 +32,24 @@ export const Container = styled.div`
 `;
 
 export const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: ${WHITE};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   text-align: center;
   padding: 18px;
   margin: 18px;
   border-radius: 10px;
-`
+`;
+
+export const OutlineBtn = styled.div`
+  display: flex;
+  border: solid;
+  text-transform: uppercase;
+  padding: 8px;
+  border-color: ${GRAY};
+  border-radius: 12px;
+  justify-content: space-between;
+  width: 180px;
+`;

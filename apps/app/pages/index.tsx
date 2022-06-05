@@ -45,6 +45,8 @@ export function Index() {
         color="#c084fc"
         icon={<BsInfoLg size={40} color="#FFF" />}
       />
+      <br />
+      <br />
     </Layout>
   );
 }
