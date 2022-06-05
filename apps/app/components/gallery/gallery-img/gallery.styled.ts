@@ -1,10 +1,11 @@
-import { WHITE } from '@wedding/app/constants/color';
+import { GRAY, WHITE } from '@wedding/app/constants/color';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin: 12px;
+  margin-bottom: 0px;
 `;
 
 export const Coll = styled.div`
@@ -38,4 +39,21 @@ export const CloseModal = styled.div`
   border-radius: 50%;
   top: 22px;
   padding: 3px;
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;  
+`;
+
+export const Btn = styled.div`
+  display: flex;
+  padding: 5px;
+  border-radius: 8px;
+  color: gray;
+  border: 2px solid ${GRAY};
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: center;
+  width: 150px;
 `;

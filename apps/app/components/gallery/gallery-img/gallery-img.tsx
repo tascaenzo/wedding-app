@@ -8,25 +8,32 @@ import {
   ModalContainer,
   CloseModal,
   ImgModal,
+  Btn,
+  BtnContainer,
 } from './gallery.styled';
 import Modal from 'react-modal';
 import { VscChromeClose } from 'react-icons/vsc';
 
 export const GalleryImg = ({ data }: GalleryImgProps) => {
+  const itemsPage = 15;
+  const [index, setIndex] = useState(itemsPage);
   const [coll1, setColl1] = useState<Media[]>([]);
   const [coll2, setColl2] = useState<Media[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [src, setSrc] = useState<string>(null);
 
   useEffect(() => {
-    const arr1 = [],
-      arr2 = [];
-    data.map((img, index) => {
-      index % 2 ? arr2.push(img) : arr1.push(img);
+    const arr1 = [];
+    const arr2 = [];
+
+    data.forEach((img, i) => {
+      if (i >= index) return;
+      i % 2 ? arr2.push(img) : arr1.push(img);
     });
+
     setColl1(arr1);
     setColl2(arr2);
-  }, [data]);
+  }, [data, index]);
 
   return (
     <>
@@ -50,7 +57,6 @@ export const GalleryImg = ({ data }: GalleryImgProps) => {
           <ImgModal src={src} />
         </ModalContainer>
       </Modal>
-
       <Container>
         <Coll>
           {coll1.map((img, index) => (
@@ -77,6 +83,12 @@ export const GalleryImg = ({ data }: GalleryImgProps) => {
           ))}
         </Coll>
       </Container>
+      <BtnContainer>
+        {coll1.length + coll2.length < data.length && (
+          <Btn onClick={() => setIndex(index + itemsPage)}>Mostra altro</Btn>
+        )}
+      </BtnContainer>
+      <br />
     </>
   );
 };
