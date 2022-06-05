@@ -4,9 +4,9 @@ import { SiGooglemaps } from 'react-icons/si';
 export const InfoGeographic = () => {
   return (
     <Container>
-      <strong style={{ paddingLeft: '20px' }}>Cermonia</strong>
+      <strong style={{ paddingLeft: '20px' }}>Cerimonia</strong>
       <CardContainer>
-        <p>Martedi 7 Giugno 2022 ore 16.30</p>
+        <p>Martedì 7 Giugno 2022 ore 16.30</p>
         <p>Basilica Cattedrale Maria SS. Annunziata “Duomo” di Acireale</p>
         <br />
         <small>
@@ -28,11 +28,11 @@ export const InfoGeographic = () => {
       <CardContainer>
         <p>Enzo e Rsosalinda</p>
         <p>
-          dopo la cerimonia saranno lieti di ringrazziare partecipanti ed amici
-          oresso la sala ricevimenti
+          dopo la cerimonia saranno lieti di ringraziare partecipanti ed amici
+          presso la sala ricevimenti
         </p>
         <br />
-        <p>Tenuta Pietra Bianca via summo 74 - Giarre</p>
+        <p>Tenuta Pietra Bianca via Zummo 74 - Giarre</p>
         <br />
         <small>
           <a

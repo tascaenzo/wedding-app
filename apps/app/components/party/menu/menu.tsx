@@ -13,7 +13,7 @@ export const Menu = () => {
         <h1>test</h1>
       </Accordion>
       <br />
-      <Accordion title="Buffe Dolci">
+      <Accordion title="Buffet Dolci">
         <h1>test</h1>
       </Accordion>
     </Container>

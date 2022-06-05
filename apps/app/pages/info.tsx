@@ -2,7 +2,7 @@ import {
   AppBar,
   Btn,
   BtnContainer,
-  InfoCermonia,
+  InfoCerimonia,
   InfoGeographic,
   Layout,
 } from '../components';
@@ -18,12 +18,12 @@ export function Info() {
           Indicazioni
         </Btn>
         <Btn onClick={() => setTab(1)} selected={tab === 1}>
-        Cermonia
+        Cerimonia
         </Btn>
       </BtnContainer>
       <br />
       {tab === 0 && <InfoGeographic />}
-      {tab === 1 && <InfoCermonia />}
+      {tab === 1 && <InfoCerimonia />}
     </Layout>
   );
 }

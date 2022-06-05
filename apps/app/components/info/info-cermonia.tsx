@@ -1,7 +1,7 @@
 import { Center, Title } from '../ceremony/ceremony.styled';
 import { Container } from './info.styled';
 
-export const InfoCermonia = () => {
+export const InfoCerimonia = () => {
   return (
     <Container>
       <Center>
