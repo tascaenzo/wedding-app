@@ -22,6 +22,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     ...httpsOptions,
     cors: true,
+    logger: ['log', 'error', 'warn', 'debug', 'verbose', 'warn'],
   });
   const port = process.env.NX_PORT || 3333;
 
@@ -34,7 +35,7 @@ async function bootstrap() {
   });
 
   // app.setGlobalPrefix('api');
-  
+
   await app.listen(port, '0.0.0.0');
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
