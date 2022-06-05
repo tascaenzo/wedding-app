@@ -5,8 +5,11 @@ import { useCookies } from 'react-cookie';
 import { MdMotionPhotosOn } from 'react-icons/md';
 import { UploadImgProps } from './upload-img.interface';
 import { Circle, Container, Text } from './upload-img.styled';
+import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
+import { Loader } from '../../commons';
 
 export const UploadImg = ({ callback }: UploadImgProps) => {
+  const { promiseInProgress } = usePromiseTracker();
   const [cookies] = useCookies(['auth']);
   const inputRef = useRef(null);
 
@@ -15,13 +18,18 @@ export const UploadImg = ({ callback }: UploadImgProps) => {
     formData.append('file', e.target.files[0]);
     formData.append('userId', cookies.auth?.id);
 
-    await fetch(API_URL + UPLOAD_PHOTO, {
-      method: 'POST',
-      credentials: 'same-origin',
-      body: formData,
-    });
+    await trackPromise(
+      fetch(API_URL + UPLOAD_PHOTO, {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: formData,
+      })
+    );
     callback();
   };
+
+  if (promiseInProgress) return <Loader />;
+
 
   return (
     <Container onClick={() => inputRef.current.click()}>

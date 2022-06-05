@@ -5,9 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
   height: 300px;
-  object-fit: cover;
-  background-position: cover;
-  background-image: url('https://lh3.googleusercontent.com/pw/AM-JKLV5EmVPtvy2TpMUn2f0nUJlj1V63TL4NrP_6LBRuQM5UfncicdZpEEZUvxx2PKKhPK3_2dEWhIKMF7VdqxGeVxv5zNdVJwUTMMl5e44zo0YSzPBYVfJUQSde0b2cSGoNqRvn_MUNphTEoxIbzGgWDOBBw=w1203-h902-no?authuser=0');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://api.enzorosalinda.it/static/om6sINPCsMbQqLbJCHhHK_IMG-20220605-WA0001.jpeg');
 `;
 
 export const BottomBar = styled.div`
