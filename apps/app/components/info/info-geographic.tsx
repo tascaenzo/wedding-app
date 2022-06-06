@@ -12,7 +12,8 @@ export const InfoGeographic = () => {
         <small>
           <a
             style={{ all: 'unset' }}
-            href="geo:37.6133143732114, 15.16640505034735"
+            // href="geo:37.6133143732114, 15.16640505034735"
+            href="https://www.google.com/maps/place/Basilica+Cattedrale+Maria+SS.ma+Annunziata+-+Acireale/@37.6131189,15.1636156,17z/data=!4m12!1m6!3m5!1s0x1313f90f38bda261:0x4e0a13c86f99fab!2sBasilica+Cattedrale+Maria+SS.ma+Annunziata+-+Acireale!8m2!3d37.6131194!4d15.1658074!3m4!1s0x1313f90f38bda261:0x4e0a13c86f99fab!8m2!3d37.6131194!4d15.1658074"
             target="_blank"
             rel="noreferrer"
           >
