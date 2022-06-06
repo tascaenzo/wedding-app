@@ -30,6 +30,9 @@ export const Menu = () => {
       <br />
       <Accordion title="Cena">
         <AccordionContainer>
+          <strong style={{ paddingBottom: '5px' }}>Entrée: </strong>
+          <P>I Carpacci di Mare</P>
+          <br />
           <strong style={{ paddingBottom: '5px' }}>Primi Piatti: </strong>
           <P>
             Le Gemme di Riso Vialone Nano con Polpa di Aragosta, Scorzette di
@@ -69,6 +72,7 @@ export const Menu = () => {
           <P>Caffè e Digestivi</P>
         </AccordionContainer>
       </Accordion>
+      <br />
     </Container>
   );
 };

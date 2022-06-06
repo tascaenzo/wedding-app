@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { PushMessage, Prisma } from '@prisma/client';
 
@@ -16,6 +16,11 @@ export class NotificationsController {
     const notifications = await this.notificationService.countNotification();
 
     return { notifications };
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.notificationService.remove(id);
   }
 
   @Post()

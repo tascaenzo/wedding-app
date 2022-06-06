@@ -2,7 +2,9 @@ import { GalleryService } from './gallery.service';
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  Param,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -18,9 +20,18 @@ export class GalleryController {
     return this.galleryService.getMedia();
   }
 
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.galleryService.remove(id);
+  }
+
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   uploadFile(@UploadedFile() file, @Body() data) {
-    return this.galleryService.toFile(file.buffer, file.originalname, data.userId);
+    return this.galleryService.toFile(
+      file.buffer,
+      file.originalname,
+      data.userId
+    );
   }
 }

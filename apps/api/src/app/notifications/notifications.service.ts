@@ -40,4 +40,11 @@ export class NotificationsService {
       orderBy: { createdAt: 'desc' },
     });
   }
+
+  async remove(id: string) {
+    this.prismaService.pushMessage.delete({ where: { id } });
+    const count = await this.countNotification();
+
+    this.server.emit('notification_count', count);
+  }
 }

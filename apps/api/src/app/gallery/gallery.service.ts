@@ -13,6 +13,10 @@ export class GalleryService {
     });
   }
 
+  remove(id: string) {
+    return this.prismaService.media.delete({ where: { id } });
+  }
+
   async toFile(file, name: string, userId: string) {
     const fileName = `${nanoid()}_${name}`;
     try {
