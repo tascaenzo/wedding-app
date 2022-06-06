@@ -26,10 +26,10 @@ export const InfoGeographic = () => {
       </CardContainer>
       <strong style={{ paddingLeft: '20px' }}>Banchetto</strong>
       <CardContainer>
-        <p>Enzo e Rsosalinda</p>
+        <p>Enzo e Rosalinda</p>
         <p>
-          dopo la cerimonia saranno lieti di ringraziare partecipanti ed amici
-          presso la sala ricevimenti
+          dopo la cerimonia saranno lieti di ringraziare parenti ed amici presso
+          la sala ricevimenti
         </p>
         <br />
         <p>Tenuta Pietra Bianca via Zummo 74 - Giarre</p>
@@ -37,7 +37,8 @@ export const InfoGeographic = () => {
         <small>
           <a
             style={{ all: 'unset' }}
-            href="geo:37.6845359,15.1684517"
+            // href="geo:37.6845359,15.1684517"
+            href="https://www.google.com/maps/place/Tenuta+PietraBianca/@37.6845972,15.1696912,18.34z/data=!4m5!3m4!1s0x1311585e8100dd45:0x8f584b3c896d6d6!8m2!3d37.6845359!4d15.1706457"
             target="_blank"
             rel="noreferrer"
           >
