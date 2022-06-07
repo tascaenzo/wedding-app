@@ -1,7 +1,6 @@
 import { PrismaService } from './../prisma.service';
 import { Injectable } from '@nestjs/common';
 import { ChatMessage } from '@prisma/client';
-import moment = require('moment');
 
 @Injectable()
 export class ChatService {
