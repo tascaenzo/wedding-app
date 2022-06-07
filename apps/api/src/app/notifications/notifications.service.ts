@@ -16,12 +16,19 @@ export class NotificationsService {
   async createNotification(
     data: Prisma.PushMessageCreateInput
   ): Promise<PushMessage> {
-    const time = new Date().toTimeString().split(':');
+    const utcDate = new Date();
+    const timeZone = 'Europe/Rome';
+    const dateObject = new Date(utcDate).toLocaleString('en-US', {
+      timeZone,
+    });
+
+    const time = dateObject.split(' ')[1];
+    const arrTime = time.split(':');
 
     const resp = await this.prismaService.pushMessage.create({
       data: {
         ...data,
-        time: `${time[0]}:${time[1]}`,
+        time: `${arrTime[0]}:${arrTime[1]}`,
       },
     });
     const count = await this.countNotification();
