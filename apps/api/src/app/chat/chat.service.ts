@@ -21,7 +21,7 @@ export class ChatService {
     message: string;
     userId: string;
   }): Promise<ChatMessage> {
-    const time = new Date().toTimeString().split(':');
+    const time = new Date().toLocaleTimeString().split(':');
     return await this.prismaService.chatMessage.create({
       data: {
         message: data.message,
