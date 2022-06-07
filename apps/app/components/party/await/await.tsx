@@ -11,7 +11,7 @@ export const Await = () => {
         style={{ height: '250px', width: '250px' }}
       />
       <br />
-      <Text>Asepetta ancora è presto, torna dopo la cerimonia</Text>
+      <Text>Aspetta ancora è presto, torna dopo la cerimonia</Text>
     </Container>
   );
 };
