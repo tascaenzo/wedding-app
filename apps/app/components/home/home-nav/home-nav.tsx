@@ -23,7 +23,7 @@ export const HomeNav = ({ messageCount, notificationCount }: HomeNavProps) => {
       <Content>
         <BtnContainer>
           <Circle onClick={() => router.push(NOTIFICATIONS)}>
-            <MdNotificationsActive size={28} color={WHITE} />
+            <MdNotificationsActive size={28} color={PRIMARY} />
           </Circle>
           <TextContainer onClick={() => router.push(NOTIFICATIONS)}>
             <TextBold>{notificationCount}</TextBold>
@@ -32,7 +32,7 @@ export const HomeNav = ({ messageCount, notificationCount }: HomeNavProps) => {
         </BtnContainer>
         <BtnContainer>
           <Circle onClick={() => router.push(CHAT)}>
-            <BsFillChatDotsFill size={28} color={WHITE} />
+            <BsFillChatDotsFill size={28} color={PRIMARY} />
           </Circle>
           <TextContainer onClick={() => router.push(CHAT)}>
             <TextBold>{messageCount}</TextBold>

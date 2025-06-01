@@ -33,9 +33,10 @@ export function Party() {
   useEffect(() => {
     (async () => {
       const u = await get(`${GET_USER}/${cookies.auth?.id}`, {});
-      setCookie('auth', u, { maxAge: 3600 * 24 * 15 }); //15 giorni
+      setCookie('auth', u, { maxAge: 3600 * 24 * 180 }); //180 giorni
       setUser(u);
       const response = await get(`${GET_META}/${KEY}`, {});
+      console.log(response);
       setIsEnabled(response.value);
 
       const t = await get(GET_TABLE, {});

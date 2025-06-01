@@ -11,13 +11,13 @@ import * as fs from 'fs';
 async function bootstrap() {
   let httpsOptions = {};
 
-  if (process.env.NODE_ENV === 'production') {
-    httpsOptions = {
-      key: fs.readFileSync(process.env.NX_CERT_KEY),
-      cert: fs.readFileSync(process.env.NX_CERT_KEY),
-      ca: fs.readFileSync(process.env.NX_CERT_CA),
-    };
-  }
+  //if (process.env.NODE_ENV === 'production') {
+  //  httpsOptions = {
+  //    key: fs.readFileSync(process.env.NX_CERT_KEY),
+  //    cert: fs.readFileSync(process.env.NX_CERT_KEY),
+  //    ca: fs.readFileSync(process.env.NX_CERT_CA),
+  //  };
+  //}
 
   const app = await NestFactory.create(AppModule, {
     ...httpsOptions,
@@ -27,8 +27,9 @@ async function bootstrap() {
   const port = process.env.NX_PORT || 3333;
 
   app.enableCors({
-    // origin: ['http://localhost:8080', 'http://192.168.1.70:8080'],
-    origin: '*',
+    origin: process.env.NX_CORS_ORIGIN
+      ? process.env.NX_CORS_ORIGIN.split(',')
+      : '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
     credentials: false,

@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx run-many --parallel --target=serve --projects=app,api",
-    "build": "npx nx run api:build --configuration=production && npx nx run app:export",
-    "test": "nx test"
+    "build:api": "npx nx run api:build --configuration=production",
+    "export:app": "cd apps/app && next build && next export && rm -rf ../../dist/apps/app && mv out ../../dist/apps/app"
   },
   "private": true,
   "dependencies": {
@@ -48,7 +48,6 @@
     "@nrwl/nest": "13.10.4",
     "@nrwl/next": "^14.1.5",
     "@nrwl/node": "13.10.4",
-    "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "14.1.5",
     "@nrwl/web": "14.1.5",
     "@nrwl/workspace": "13.10.4",

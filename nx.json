@@ -1,26 +1,10 @@
 {
-  "npmScope": "wedding",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/nest"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
     ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "OGViY2E3Y2QtYWQ5Zi00ZDM4LWEwMTYtOTI4ZGFmNmNlZDVlfHJlYWQtd3JpdGU="
-      }
-    }
   },
   "targetDependencies": {
     "build": [
@@ -43,5 +27,22 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "nxCloudAccessToken": "OGViY2E3Y2QtYWQ5Zi00ZDM4LWEwMTYtOTI4ZGFmNmNlZDVlfHJlYWQtd3JpdGU=",
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    }
+  },
+  "useInferencePlugins": false,
+  "defaultBase": "main"
 }
