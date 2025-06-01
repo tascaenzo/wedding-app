@@ -11,9 +11,10 @@ import { Loader } from '../../commons';
 export const UploadImg = ({ callback }: UploadImgProps) => {
   const { promiseInProgress } = usePromiseTracker();
   const [cookies] = useCookies(['auth']);
-  const inputRef = useRef(null);
 
-  const handleFileInput = async (e) => {
+  const handleFileInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || !e.target.files[0]) return;
+
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
     formData.append('userId', cookies.auth?.id);
@@ -30,20 +31,28 @@ export const UploadImg = ({ callback }: UploadImgProps) => {
 
   if (promiseInProgress) return <Loader />;
 
-
   return (
-    <Container onClick={() => inputRef.current.click()}>
+    // Usa label invece di Container + ref
+    <label
+      style={{
+        cursor: 'pointer',
+        display: 'block',
+        touchAction: 'manipulation',
+      }}
+    >
       <input
-        ref={inputRef}
         style={{ display: 'none' }}
         accept="image/*"
         type="file"
         onChange={handleFileInput}
+        capture="environment"
       />
-      <Circle>
-        <MdMotionPhotosOn size={26} color={WHITE} />
-      </Circle>
-      <Text>Scatta una foto</Text>
-    </Container>
+      <Container as="div">
+        <Circle>
+          <MdMotionPhotosOn size={26} color={WHITE} />
+        </Circle>
+        <Text>Scatta una foto</Text>
+      </Container>
+    </label>
   );
 };
