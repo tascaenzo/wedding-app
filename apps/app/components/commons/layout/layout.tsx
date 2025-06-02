@@ -6,16 +6,12 @@ import { LayoutProps } from './layout.interface';
 import { LayoutContainer } from './layout.styled';
 import { usePromiseTracker } from 'react-promise-tracker';
 import { Loader } from '../loader';
-import { useViewportHeight } from '../../../hooks/use-viewport-height';
 
 export const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const [cookies] = useCookies(['auth']);
   const [loading, setLoading] = useState(true);
   const { promiseInProgress } = usePromiseTracker();
-
-  // Usa il hook per gestire l'altezza della viewport dinamicamente
-  useViewportHeight();
 
   useEffect(() => {
     if (router.asPath !== LOGIN && !cookies.auth) router.push(LOGIN);
