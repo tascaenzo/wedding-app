@@ -3,8 +3,30 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './global.css';
 import { PRIMARY } from '../constants';
+import { useEffect } from 'react';
 
 function CustomApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    const hideAddressBar = () => {
+      // Nascondi la barra degli indirizzi scrollando leggermente
+      setTimeout(() => {
+        window.scrollTo(0, 1);
+      }, 100);
+    };
+
+    // Trigger all'apertura e orientamento
+    window.addEventListener('load', hideAddressBar);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(hideAddressBar, 500);
+    });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('load', hideAddressBar);
+      window.removeEventListener('orientationchange', hideAddressBar);
+    };
+  }, []);
+
   return (
     <>
       <Head>
