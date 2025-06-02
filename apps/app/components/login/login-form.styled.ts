@@ -1,5 +1,5 @@
 import { WHITE } from '@wedding/app/constants/color';
-import { PRIMARY_LIGHT } from '@wedding/app/constants';
+import { PRIMARY } from '@wedding/app/constants';
 import styled from 'styled-components';
 
 export const Form = styled.div`
@@ -7,7 +7,7 @@ export const Form = styled.div`
 `;
 
 export const Button = styled.button`
-  background-color: ${PRIMARY_LIGHT};
+  background-color: ${PRIMARY};
   padding: 12px;
   border-radius: 30px;
   width: 100%;

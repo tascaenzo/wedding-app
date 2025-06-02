@@ -3,6 +3,7 @@ import {
   BACKGROUND,
   PRIMARY_LIGHT,
   WHITE,
+  GRAY_DARK,
 } from '@wedding/app/constants/color';
 import styled from 'styled-components';
 
@@ -27,10 +28,10 @@ export const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height:40px;
+  height: 40px;
   width: 100%;
   background-color: ${PRIMARY_LIGHT};
-  padding: 8px;;
+  padding: 8px;
   border-radius: 10px;
 `;
 
@@ -47,7 +48,7 @@ export const Btn = styled.div`
 export const Input = styled.input`
   width: 100%;
   background-color: transparent;
-  color: ${WHITE};
+  color: ${GRAY_DARK};
   font-size: 16px;
   border-color: transparent;
   &:focus {

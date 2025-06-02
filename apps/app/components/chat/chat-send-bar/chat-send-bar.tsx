@@ -31,7 +31,7 @@ export const ChatSendBar = ({ onSend }: ChatSendBarProps) => {
             onChange={(event) => setMessage(event.target.value)}
           />
           <Btn onClick={onClick}>
-            <RiSendPlane2Fill size={22} color={PRIMARY_LIGHT} />
+            <RiSendPlane2Fill size={22} color={PRIMARY} />
           </Btn>
         </InputContainer>
       </Container>

@@ -7,23 +7,71 @@ import { useEffect } from 'react';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const hideAddressBar = () => {
-      // Nascondi la barra degli indirizzi scrollando leggermente
-      setTimeout(() => {
-        window.scrollTo(0, 1);
-      }, 100);
+    // Inizializzazione per mobile - gestione viewport dinamico
+    const setVH = () => {
+      // Usa visualViewport se disponibile (più preciso), altrimenti innerHeight
+      const vh = window.visualViewport?.height || window.innerHeight;
+      document.documentElement.style.setProperty('--vh', `${vh * 0.01}px`);
     };
 
-    // Trigger all'apertura e orientamento
-    window.addEventListener('load', hideAddressBar);
+    // Imposta l'altezza iniziale
+    setVH();
+
+    // Event listeners per aggiornamenti dinamici della viewport
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setVH);
+    } else {
+      window.addEventListener('resize', setVH);
+    }
+
     window.addEventListener('orientationchange', () => {
-      setTimeout(hideAddressBar, 500);
+      // Delay per permettere al browser di aggiornare le dimensioni
+      setTimeout(setVH, 100);
     });
 
-    // Cleanup
+    // Gestione specifica per nascondere la barra degli indirizzi su mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Prima strategia: scroll minimo per attivare il nascondimento
+      const hideAddressBar = () => {
+        if (window.scrollY === 0) {
+          window.scrollTo(0, 1);
+          // Ritorna al top dopo che la barra si è nascosta
+          setTimeout(() => window.scrollTo(0, 0), 500);
+        }
+      };
+
+      // Esegui il nascondimento dopo il caricamento iniziale
+      setTimeout(hideAddressBar, 1000);
+
+      // Ri-nascondi la barra quando l'utente tocca lo schermo
+      const handleTouch = () => {
+        setTimeout(hideAddressBar, 300);
+      };
+
+      document.addEventListener('touchstart', handleTouch, { once: true });
+
+      // Cleanup per touchstart
+      return () => {
+        document.removeEventListener('touchstart', handleTouch);
+        if (window.visualViewport) {
+          window.visualViewport.removeEventListener('resize', setVH);
+        } else {
+          window.removeEventListener('resize', setVH);
+        }
+        window.removeEventListener('orientationchange', setVH);
+      };
+    }
+
+    // Cleanup per dispositivi non mobile
     return () => {
-      window.removeEventListener('load', hideAddressBar);
-      window.removeEventListener('orientationchange', hideAddressBar);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', setVH);
+      } else {
+        window.removeEventListener('resize', setVH);
+      }
+      window.removeEventListener('orientationchange', setVH);
     };
   }, []);
 
@@ -38,12 +86,15 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content={PRIMARY} />
         <meta name="msapplication-TileColor" content={PRIMARY} />
 
-        {/* iOS Safari - Barra di stato */}
+        {/* iOS Safari - Configurazione per nascondere la barra degli indirizzi */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content="Wedding App" />
 
-        {/* Android Chrome - Colore della barra di navigazione */}
+        {/* Android Chrome - Configurazione per nascondere la barra di navigazione */}
         <meta name="mobile-web-app-capable" content="yes" />
 
         {/* Colore di sfondo per splash screen */}
@@ -52,7 +103,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         {/* Descrizione per quando viene aggiunta alla home screen */}
         <meta
           name="description"
-          content="App per il matrimonio di Marco e Aurora"
+          content="App per il matrimonio di Enzo e Rosalinda"
         />
 
         {/* Font preload */}
@@ -63,10 +114,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
 
-        {/* Viewport ottimizzato per mobile */}
+        {/* Viewport ottimizzato per mobile con viewport-fit=cover per gestire il notch */}
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover"
         />
 
         <title>Wedding App</title>
