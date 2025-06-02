@@ -2,15 +2,38 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './global.css';
+import { PRIMARY } from '../constants';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        {/* PWA Manifest */}
         {/* <link rel="manifest" href="/manifest.json" /> */}
         <link rel="apple-touch-icon" href="/icon.png"></link>
-        <meta name="theme-color" content="#FFF" />
 
+        {/* Theme Colors - Personalizza questi colori */}
+        <meta name="theme-color" content={PRIMARY} />
+        <meta name="msapplication-TileColor" content={PRIMARY} />
+
+        {/* iOS Safari - Barra di stato */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Wedding App" />
+
+        {/* Android Chrome - Colore della barra di navigazione */}
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        {/* Colore di sfondo per splash screen */}
+        <meta name="msapplication-TileImage" content="/icon.png" />
+
+        {/* Descrizione per quando viene aggiunta alla home screen */}
+        <meta
+          name="description"
+          content="App per il matrimonio di Marco e Aurora"
+        />
+
+        {/* Font preload */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -18,10 +41,12 @@ function CustomApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
 
+        {/* Viewport ottimizzato per mobile */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
+
         <title>Wedding App</title>
       </Head>
       <main>
