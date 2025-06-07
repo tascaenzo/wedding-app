@@ -7,7 +7,8 @@ export const Container = styled.div`
   height: 300px;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://api.enzorosalinda.it/static/om6sINPCsMbQqLbJCHhHK_IMG-20220605-WA0001.jpeg');
+  background-image: url('https://api.marcoeaurora.it/static/cover.webp');
+  background-size: cover;
 `;
 
 export const BottomBar = styled.div`

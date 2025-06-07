@@ -12,11 +12,11 @@ export const InfoCerimonia = () => {
         <Title>Testimoni</Title>
         <br />
         <br />
-        <p>Mariannina Cucuzza</p>
+        <p>Salvatrice Dorina Arena</p>
         <p>Alice Colomba Enrica Arena</p>
         <br />
-        <p>Salvatrice Dorina Arena</p>
-        <p>Noemi Tasca</p>
+        <p>Andrea Pio Risdonna</p>
+        <p>Mariannina Cucuzza</p>
         <br />
         <Title>Benedice le nozze</Title>
         <br />
