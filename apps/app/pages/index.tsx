@@ -18,6 +18,18 @@ export function Index() {
         notificationCount={notificationCount}
         messageCount={messageCount}
       />
+      <div
+        style={{
+          textAlign: 'center',
+          fontWeight: 'bold',
+          marginBottom: '16px',
+          fontSize: '1.2rem',
+          textTransform: 'uppercase',
+        }}
+      >
+        <p style={{ paddingBottom: 6 }}>Marco & Aurora</p>
+        <p>20.06.2025</p>
+      </div>
       <Card
         onClick={() => push(CEREMONY)}
         text="Libretto Cerimonia"
