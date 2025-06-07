@@ -20,7 +20,7 @@ export function Index() {
       />
       <Card
         onClick={() => push(CEREMONY)}
-        text="Segui la cerimonia"
+        text="Libretto Cerimonia"
         color="#f87171"
         icon={<GiDiamondRing size={40} color="#FFF" />}
       />
