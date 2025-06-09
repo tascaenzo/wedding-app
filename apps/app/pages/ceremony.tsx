@@ -1,4 +1,4 @@
-/* import {
+import {
   AppBar,
   BtnTab,
   Layout,
@@ -60,4 +60,3 @@ export function Ceremony() {
 }
 
 export default Ceremony;
- */
