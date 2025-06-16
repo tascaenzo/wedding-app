@@ -14,7 +14,7 @@ export class UsersService {
       },
     });
 
-    if (findUser) findUser;
+    if (findUser) return findUser;
 
     return this.prismaService.user.create({ data: user });
   }
