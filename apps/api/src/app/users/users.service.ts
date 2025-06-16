@@ -7,6 +7,15 @@ export class UsersService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async createUser(user: Prisma.UserCreateInput) {
+    const findUser = await this.prismaService.user.findFirst({
+      where: {
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+    });
+
+    if (findUser) findUser;
+
     return this.prismaService.user.create({ data: user });
   }
 
