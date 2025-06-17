@@ -5,71 +5,72 @@ export const Menu = () => {
   return (
     <Container>
       <br />
-      <Accordion title="Antipasto">
+      <Accordion title="Antipasti">
         <AccordionContainer>
-          <P>L’Isola dell’Impepata di Cozze</P>
-          <P>L’Isola dei Quadrucci di Pesce</P>
-          <P>L’Angolo Sfizioso</P>
-          <P>L’ Isola dei Gratinati di mare</P>
-          <P>L’ Angolo delle Fritturine di Paranza</P>
-          <P>L’ Isola del Polpo con Pinzimonio</P>
-          <P>ll Buffet dei Formaggi e dei Salumi</P>
-          <P>ll Buffet dei Fritti</P>
-          <P>L’Isola del Cous Cous</P>
-          <P>L’Isola del Fornaio </P>
-          <P>L’Isola delle Conserve</P>
-          <P>L’Isola dei Finger Food</P>
-          <P>L’Isola Vegetariana</P>
-          <P>L’Isola del Pizzicagnolo</P>
-          <P>L’Isola del Rustico</P>
-          <P>L’Isola dei Marinati</P>
-          <P>L’Isola delle Ostriche e dei Fasolari</P>
-          <P>L’Isola dei Crudi</P>
+          <P>Gran Parata di Così Licchi</P>
         </AccordionContainer>
       </Accordion>
       <br />
-      <Accordion title="Cena">
+      <Accordion title="Primi">
         <AccordionContainer>
-          <strong style={{ paddingBottom: '5px' }}>Entrée: </strong>
-          <P>I Carpacci di Mare</P>
-          <br />
-          <strong style={{ paddingBottom: '5px' }}>Primi Piatti: </strong>
           <P>
-            Le Gemme di Riso Vialone Nano con Polpa di Aragosta, Scorzette di
-            Limone Verdello Mantecato allo Champagne
+            Riso di Donna Franca Florio: Chicco lungo trattato a vapore agli
+            agrumi di Sicilia, con aragosta, gambero rosso di Mazara, crema di
+            ostriche e riduzione di verdello dell Jaci
           </P>
           <br />
           <P>
-            La Doppia Sfoglia al Nero di Seppia Farciti di Ricotta e
-            Finocchietto Selvatico Salsa alla Cernia Su Crema di Piselli e
-            Scaglie di Mandorle Tostate
+            La Panzuta delle Aci: Medaglione rosa di pasta fresca, ripieno di
+            capesante, con cubetti di ombrina, su vellutata di rucola e crema di
+            mandorla di Avola integrale
+          </P>
+        </AccordionContainer>
+      </Accordion>
+      <br />
+      <Accordion title="Secondi Piatti">
+        <AccordionContainer>
+          <P>
+            Il Filettino di Triglia Imperiale: Con pane di tumminia, uvetta
+            candita pinoli dell'Etna con polpettina di biete, sfoglia di patata
+            al tartufo, crema bianca di crostacei ed olio verde
           </P>
           <br />
-          <strong style={{ paddingBottom: '5px' }}>Secondi Piatti: </strong>
-          <P>Il Trancio di Pescato del Giorno con Souté di Cozze</P>
-          <P>Il Rotolino di Pesce Spada alla Palermitana</P>
-          <P>Gli Asparagi Bardat</P>
+          <P>
+            Sapori Mediterranei 2: Cernia al profumo di Marsala DOC Fine I.P e
+            limone di Sicilia IGP su crema di patate di carruba ai fiori di
+            sambuco, accompagnata da salvia croccante
+          </P>
+        </AccordionContainer>
+      </Accordion>
+      <br />
+      <Accordion title="Contorno">
+        <AccordionContainer>
+          <P>L'Insalata di finocchio croccante con arance, zammu' e capperi</P>
+        </AccordionContainer>
+      </Accordion>
+      <br />
+      <Accordion title="Menu' Bimbi">
+        <AccordionContainer>
+          <P>Lasagnetta pomodoro e formaggio</P>
+          <P>Cotoletta di pollo</P>
+          <P>Patatine fritte</P>
+        </AccordionContainer>
+      </Accordion>
+      <br />
+      <Accordion title="Dolci">
+        <AccordionContainer>
+          <P>Gran Buffet di Così Duci + Confettata</P>
           <br />
-          <P>Il Sorbetto agli Agrumi di Sicilia al Buffet</P>
+          <strong style={{ paddingBottom: '5px' }}>Torta Nuziale: </strong>
+          <P>
+            Mandorla con crema chantilly alla mandorla con croccante di mandorla
+          </P>
         </AccordionContainer>
       </Accordion>
       <br />
-      <Accordion title="Buffet Dolci">
+      <Accordion title="Vino">
         <AccordionContainer>
-          <P>Il Gran Buffet di Dolci della tradizione</P>
-          <P>La Tagliata di Frutta Fresca di stagione</P>
-          <P>La Fontana di Cioccolato Nero </P>
-          <P>L’Isola Delle Crepes e dei Waffle</P>
-        </AccordionContainer>
-      </Accordion>
-      <br />
-      <Accordion title="La Cantina">
-        <AccordionContainer>
-          <P>Vino Oniris Bianco Duca di Salaparuta</P>
-          <P>Acqua Effervescente</P>
-          <P>Coca Cola in caraffa</P>
-          <P>Spumante Brut e Dolce</P>
-          <P>Caffè e Digestivi</P>
+          <P>Leone - Tasca d'Almerita</P>
         </AccordionContainer>
       </Accordion>
       <br />
