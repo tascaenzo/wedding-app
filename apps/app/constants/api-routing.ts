@@ -1,6 +1,6 @@
 //export const API_URL = process.env.NX_API_HOST;
-//export const API_URL = 'https://api.marcoeaurora.it';
-export const API_URL = 'http://localhost:5000';
+export const API_URL = 'https://api.marcoeaurora.it';
+//export const API_URL = 'http://localhost:5000';
 
 export const GET_USER = '/users';
 export const CREATE_USER = '/users';
