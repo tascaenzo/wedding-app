@@ -12,7 +12,8 @@ export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (cookies.auth !== undefined) push(HOME);
+    if (cookies.auth !== undefined && cookies.auth.firstName !== undefined)
+      push(HOME);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
