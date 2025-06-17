@@ -12,7 +12,9 @@ export const HomeHeader = () => {
     setIsSSR(false);
   }, []);
 
-  if(isSSR) return <></>
+  if (isSSR) return <></>;
+
+  if (!cookies?.auth) cookies.auth = undefined;
 
   return (
     <Container>
