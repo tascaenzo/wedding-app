@@ -6,7 +6,7 @@ export const InfoGeographic = () => {
     <Container>
       <strong style={{ paddingLeft: '20px' }}>Cerimonia</strong>
       <CardContainer>
-        <p>Martedì 20 Giugno 2025 ore 16.30</p>
+        <p>Venerdì 20 Giugno 2025 ore 16.30</p>
         <p>
           Basilica Collegiata dei Santi Apostoli Pietro e Paolo Acireale (CT)
         </p>
