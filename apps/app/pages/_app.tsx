@@ -103,7 +103,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         {/* Descrizione per quando viene aggiunta alla home screen */}
         <meta
           name="description"
-          content="App per il matrimonio di Enzo e Rosalinda"
+          content="20.06.2025 - Marco e Aurora si sposano! Scopri tutti i dettagli del matrimonio, le informazioni utili e molto altro ancora."
         />
 
         {/* Font preload */}
@@ -120,7 +120,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover"
         />
 
-        <title>Wedding App</title>
+        <title>Marco & Aurora</title>
       </Head>
       <main>
         <Component {...pageProps} />
