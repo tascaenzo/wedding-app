@@ -45,7 +45,7 @@ export const UploadImg = ({ callback }: UploadImgProps) => {
         accept="image/*"
         type="file"
         onChange={handleFileInput}
-        capture="environment"
+        //capture="environment"
       />
       <Container as="div">
         <Circle>
