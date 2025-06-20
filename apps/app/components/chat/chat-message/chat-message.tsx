@@ -4,12 +4,66 @@ import { Container, Msg, MsgContainer, Text } from './chat-message.styled';
 import Avatar from 'react-nice-avatar';
 import { avatars } from '../../commons';
 
+// Funzione per renderizzare il testo con link cliccabili
+const renderMessageWithLinks = (message: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = message.split(urlRegex);
+
+  return parts.map((part, index) => {
+    if (urlRegex.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: 'inherit',
+            textDecoration: 'underline',
+            wordBreak: 'break-all',
+          }}
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+};
+
+// Funzione per formattare la data con giorno e orario
+const formatDateTime = (time: string | Date) => {
+  try {
+    const date = typeof time === 'string' ? new Date(time) : time;
+
+    // Verifica se la data è valida
+    if (isNaN(date.getTime())) {
+      return time.toString(); // Ritorna il valore originale se non è una data valida
+    }
+
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'short', // Lun, Mar, Mer, etc.
+      //day: '2-digit', // 01, 02, etc.
+      hour: '2-digit', // 09, 10, etc.
+      minute: '2-digit', // 30, 45, etc.
+      hour12: false, // Formato 24 ore
+    };
+
+    return date.toLocaleString('it-IT', options);
+  } catch (error) {
+    return time.toString(); // Fallback in caso di errore
+  }
+};
+
 export const ChatMessage = ({
   author,
   rightAlign,
   message,
   time,
 }: ChatMessageProps) => {
+  const formattedTime = formatDateTime(time);
+  const messageWithLinks = renderMessageWithLinks(message);
+
   if (rightAlign) {
     return (
       <Container
@@ -29,8 +83,15 @@ export const ChatMessage = ({
               backgroundColor: PRIMARY_LIGHT,
             }}
           >
-            <span style={{ color: '#464646' }}>{message}</span>
-            <Text style={{ textAlign: 'right', padding: '0px' }}>{time}</Text>
+            <span style={{ color: '#464646' }}>{messageWithLinks}</span>
+            <Text
+              style={{
+                textAlign: 'right',
+                padding: '0px',
+              }}
+            >
+              {formattedTime}
+            </Text>
           </Msg>
         </MsgContainer>
       </Container>
@@ -46,8 +107,10 @@ export const ChatMessage = ({
       <MsgContainer>
         <Text> {`${author.firstName} ${author.lastName} `}</Text>
         <Msg>
-          <span style={{ color: '#464646' }}>{message}</span>
-          <Text style={{ textAlign: 'right', padding: '0px' }}>{time}</Text>
+          <span style={{ color: '#464646' }}>{messageWithLinks}</span>
+          <Text style={{ textAlign: 'right', padding: '0px' }}>
+            {formattedTime}
+          </Text>
         </Msg>
       </MsgContainer>
     </Container>

@@ -47,6 +47,17 @@ export const GalleryImg = ({ data }: GalleryImgProps) => {
             background: 'transparent',
             display: 'flex',
             border: 0,
+            padding: 0,
+            inset: '20px', // Margini più piccoli (equivale a top, right, bottom, left: 20px)
+            maxWidth: '95vw',
+            maxHeight: '95vh',
+            margin: 'auto',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)', // Sfondo più scuro per maggiore contrasto
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           },
         }}
       >
@@ -54,7 +65,16 @@ export const GalleryImg = ({ data }: GalleryImgProps) => {
           <CloseModal>
             <VscChromeClose onClick={() => setIsOpen(false)} />
           </CloseModal>
-          <ImgModal src={src} />
+          <ImgModal
+            src={src}
+            style={{
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
         </ModalContainer>
       </Modal>
       <Container>

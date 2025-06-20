@@ -27,4 +27,5 @@ export const Text = styled.span`
   padding-bottom: 6px;
   color: #1f2937;
   font-size: 12px;
+  text-transform: capitalize;
 `;

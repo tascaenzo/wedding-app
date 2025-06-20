@@ -24,7 +24,7 @@ function Chat() {
               <ChatMessage
                 key={index}
                 message={msg.message}
-                time={msg.time}
+                time={msg.createdAt as unknown as string}
                 author={msg.User}
                 rightAlign={msg.userId === cookies?.auth?.id}
               />
