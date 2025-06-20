@@ -4,13 +4,69 @@ import { Container, Msg, MsgContainer, Text } from './chat-message.styled';
 import Avatar from 'react-nice-avatar';
 import { avatars } from '../../commons';
 
-// Funzione per renderizzare il testo con link cliccabili
+// Funzione per verificare se un URL è un file audio
+const isAudioUrl = (url: string): boolean => {
+  const audioExtensions = [
+    '.mp3',
+    '.wav',
+    '.ogg',
+    '.m4a',
+    '.aac',
+    '.flac',
+    '.wma',
+  ];
+  const lowerUrl = url.toLowerCase();
+  return (
+    audioExtensions.some((ext) => lowerUrl.includes(ext)) ||
+    lowerUrl.includes('audio') ||
+    lowerUrl.includes('soundcloud') ||
+    lowerUrl.includes('spotify')
+  );
+};
+
+// Funzione per renderizzare il testo con link cliccabili e audio player
 const renderMessageWithLinks = (message: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const parts = message.split(urlRegex);
 
   return parts.map((part, index) => {
     if (urlRegex.test(part)) {
+      // Se è un file audio, mostra il player
+      if (isAudioUrl(part)) {
+        return (
+          <div key={index} style={{ margin: '8px 0', width: '100%' }}>
+            <audio
+              controls
+              style={{
+                width: '100%',
+                maxWidth: '300px',
+                height: '40px',
+              }}
+              preload="metadata"
+            >
+              <source src={part} />
+              Il tuo browser non supporta l'audio.
+              <a
+                href={part}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'underline',
+                  wordBreak: 'break-all',
+                }}
+              >
+                Ascolta audio
+              </a>
+            </audio>
+            <div style={{ fontSize: '10px', color: '#888', marginTop: '2px' }}>
+              🎵 File audio
+            </div>
+          </div>
+        );
+      }
+
+      // Altrimenti mostra il link normale
       return (
         <a
           key={index}
